@@ -2,4 +2,4 @@
 
 Is an app developed by the startup GrowTech.
 
-Websit: http://wwww.growtech.loccioni.com
+Websit: http://www.growtech.loccioni.com
