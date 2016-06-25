@@ -1,0 +1,44 @@
+<div class="container">
+    <div class="row">
+        <h2 class="text-center">La mia coltivazione</h2>
+    </div>
+    <div class="row text-center">
+        <h5 class="first">Temperatura Aria: {{_air}}</h5>
+        <p-slider [(ngModel)]="_air" [style]="{'width':'100%'}" [min]="0" [max]="255"></p-slider>
+    </div>
+
+    <div class="row text-center">
+        <h5 class="first">pH: {{_ph}}</h5>
+        <p-slider [(ngModel)]="_ph" [style]="{'width':'100%'}" [step]="1" [min]="0" [max]="14"></p-slider>
+    </div>
+
+    <div class="row text-center">
+        <h5 class="first">Umidità: {{_hum}}%</h5>
+        <p-slider [(ngModel)]="_hum" [style]="{'width':'100%'}" [min]="0" [max]="100"></p-slider>
+    </div>
+
+    <table class="text-center" width="100%">
+        <tr class="text-center">
+            <td colspan="6"><h3>Dati attuali</h3></td>
+        </tr>
+        <tr>
+            <th>Nome</th>
+            <th>Temperatura Aria</th>
+            <th>Temperatura Acqua</th>
+            <th>Umidità</th>
+            <th>pH</th>
+            <th>Coducibilità</th>
+        </tr>
+        <tr>
+            <td>{{otherParameters[0]?.AirTemperature}}</td>
+            <td>{{otherParameters[0]?.WaterTemperature}}</td>
+            <td>{{otherParameters[0]?.Humidity}}</td>
+            <td>{{otherParameters[0]?.PH}}</td>
+            <td>{{otherParameters[0]?.Conductivity}}</td>
+        </tr>
+    </table>
+
+    <button class="btn btn-default" (click)="getParametersItems()">Get Parameters</button>
+    <button class="btn btn-default" (click)="setParametersItems()">Set Parameters</button>
+    <button class="btn btn-default" (click)="setCurtainsItem()">Curtains</button>
+</div>

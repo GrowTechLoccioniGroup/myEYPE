@@ -1,0 +1,52 @@
+<div id="wrapper" [ngClass]="{'toggled':menuClosed}">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a [routerLink]="['Home-Component']">
+                        <div class="row"><img src="app/ext/LogoBianco.png" class="center-block" (click)="closeMenu()"></div>
+                    </a>
+                </li>
+                <li>
+                    <div class="col-sm-10"><a [routerLink]="['Dashboard-Component']" (click)="closeMenu()">Dashboard</a></div>
+                    <div class="col-sm-2"><img src="app/ext/ico/dashboard-hover.ico" class="pull-right" width="35px" height="35px"></div>
+                </li>
+                <li> 
+                    <div class="col-sm-10"><a [routerLink]="['Control-Component']" (click)="closeMenu()">La mia coltivazione</a></div>
+                    <div class="col-sm-2"><img src="app/ext/ico/coltivazione.ico" class="pull-right" width="35px" height="35px"></div>
+                </li>
+                <li>
+                    <div class="col-sm-10"><a [routerLink]="['Recipe-Component']" (click)="closeMenu()">Ricette</a></div>
+                    <div class="col-sm-2"><img src="app/ext/ico/libro.ico" class="pull-right" width="35px" height="35px"></div>
+                </li>
+                <li>
+                    <div class="col-sm-10"><a [routerLink]="['Guide-Component']" (click)="closeMenu()">Guida all'utilizzo</a></div>
+                    <div class="col-sm-2"><img src="app/ext/ico/guida.ico" class="pull-right" width="35px" height="35px"></div>
+                </li>
+                <li>
+                    <div class="col-sm-10"><a [routerLink]="['Site-Component']" (click)="closeMenu()">Sito</a></div>
+                    <div class="col-sm-2"><img src="app/ext/ico/sito.ico" class="pull-right" width="35px" height="35px"></div>
+                </li>
+                <li>
+                    <div class="col-sm-10"><a [routerLink]="['Avanz-Component']" (click)="closeMenu()">Advanced</a></div>
+                    <div class="col-sm-2"><img src="app/ext/ico/settings.ico" class="pull-right" width="35px" height="35px"></div>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+        
+        <!-- Page Content -->
+        <div id="menuNav"><a id="menu-toggle"><my-hamburger (click)="closeMenu()"></my-hamburger></a><img id="test" src="{{imgEYPE}}" [ngClass]="{'show':menuClosed}"></div>
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <router-outlet></router-outlet>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
