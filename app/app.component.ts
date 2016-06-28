@@ -8,12 +8,13 @@ import { RecipeComponent } from './recipe/recipe.component';
 import { GuideComponent } from './guide/guide.component';
 import { SiteComponent } from './site/site.component';
 import { AvanzComponent } from './avanz/avanz.component';
+import { LogoComponent } from './logo/logo.component';
 
 @Component({
     selector: 'my-app',
     templateUrl: 'app/app.component.html',
     styleUrls: ['app/app.component.css'],
-    directives: [ROUTER_DIRECTIVES, HamburgerComponent],
+    directives: [ROUTER_DIRECTIVES, HamburgerComponent, LogoComponent],
     providers: [ROUTER_PROVIDERS]
 })
 
@@ -60,17 +61,8 @@ import { AvanzComponent } from './avanz/avanz.component';
 
 export class AppComponent {
     menuClosed = true;
-    imgEYPE = "../app/ext/LogoEYPEbianco.png";
 
     closeMenu() {
         this.menuClosed = !this.menuClosed;
-    }
-
-    @HostListener('mouseenter') onMouseEnter() {
-        this.imgEYPE = "../app/ext/LogoEYPEgrigio.png";
-    }
-
-    @HostListener('mouseleave') onMouseLeave() {
-        this.imgEYPE = "../app/ext/LogoEYPEbianco.png";
     }
 }

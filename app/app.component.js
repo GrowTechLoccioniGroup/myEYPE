@@ -18,38 +18,20 @@ var recipe_component_1 = require('./recipe/recipe.component');
 var guide_component_1 = require('./guide/guide.component');
 var site_component_1 = require('./site/site.component');
 var avanz_component_1 = require('./avanz/avanz.component');
+var logo_component_1 = require('./logo/logo.component');
 var AppComponent = (function () {
     function AppComponent() {
         this.menuClosed = true;
-        this.imgEYPE = "../app/ext/LogoEYPEbianco.png";
     }
     AppComponent.prototype.closeMenu = function () {
         this.menuClosed = !this.menuClosed;
     };
-    AppComponent.prototype.onMouseEnter = function () {
-        this.imgEYPE = "../app/ext/LogoEYPEgrigio.png";
-    };
-    AppComponent.prototype.onMouseLeave = function () {
-        this.imgEYPE = "../app/ext/LogoEYPEbianco.png";
-    };
-    __decorate([
-        core_1.HostListener('mouseenter'), 
-        __metadata('design:type', Function), 
-        __metadata('design:paramtypes', []), 
-        __metadata('design:returntype', void 0)
-    ], AppComponent.prototype, "onMouseEnter", null);
-    __decorate([
-        core_1.HostListener('mouseleave'), 
-        __metadata('design:type', Function), 
-        __metadata('design:paramtypes', []), 
-        __metadata('design:returntype', void 0)
-    ], AppComponent.prototype, "onMouseLeave", null);
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
             templateUrl: 'app/app.component.html',
             styleUrls: ['app/app.component.css'],
-            directives: [router_deprecated_1.ROUTER_DIRECTIVES, hamburger_component_1.HamburgerComponent],
+            directives: [router_deprecated_1.ROUTER_DIRECTIVES, hamburger_component_1.HamburgerComponent, logo_component_1.LogoComponent],
             providers: [router_deprecated_1.ROUTER_PROVIDERS]
         }),
         router_deprecated_1.RouteConfig([

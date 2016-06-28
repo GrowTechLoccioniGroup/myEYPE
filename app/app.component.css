@@ -4,19 +4,25 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
 
+.ico {
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
+}
+
 #test {
     margin-bottom: 25px; 
     margin-left: 600px;
 }
-
+/*
 .width0 {
     width: 0px!important;
-}
+}*/
 
 #menuNav {
     margin: 0px;
     padding: 0px;
-    background-color: #9ACD32;
+    background-color: #216D00;
     width: 100%;
     height: 50px;
     /*position: fixed;*/
@@ -50,7 +56,7 @@
     height: 100%;
     margin-left: -250px;
     overflow-y: auto;
-    background: #9ACD32;
+    background: #216D00;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
