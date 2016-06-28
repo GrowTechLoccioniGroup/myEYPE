@@ -16,9 +16,10 @@ var ControlComponent = (function () {
     function ControlComponent(_recipeService) {
         this._recipeService = _recipeService;
         this.otherParameters = [
-            { TimeStamp: new Date(2016, 0, 0), AirTemperature: 0.0, WaterTemperature: 0.0, Humidity: 0, PH: 0.0, Conductivity: 0 }
+            { id_parameters: 0, TimeStamp: new Date(2016, 0, 0), AirTemperature: 0.0, WaterTemperature: 0.0, Humidity: 0, PH: 0.0, Conductivity: 0 }
         ];
         this.myParameters = {
+            id_parameters: 0,
             TimeStamp: new Date(1993, 2, 3),
             AirTemperature: 0.0,
             WaterTemperature: 0.0,
@@ -32,6 +33,7 @@ var ControlComponent = (function () {
         this._hum = 0;
     }
     ControlComponent.prototype.ngOnInit = function () {
+        this.getParametersItems();
     };
     ControlComponent.prototype.getParametersItems = function () {
         var _this = this;
@@ -45,8 +47,11 @@ var ControlComponent = (function () {
         this.myParameters.Humidity = this._hum;
         this._recipeService.setParameters(this.myParameters).subscribe(function (data) { return console.log(data); }, function (error) { return console.log(error); }, function () { return console.log('Set all PARAMETERS complete!'); });
     };
-    ControlComponent.prototype.setCurtainsItem = function () {
-        this._recipeService.setCurtains(this.setCurtains).subscribe(function (curtain) { return curtain.json(); }, function (error) { return console.log(error); }, function () { return console.log('Set CURTAIN complete!'); });
+    ControlComponent.prototype.setCurtainsItemsUp = function () {
+        this._recipeService.setCurtainsUp(true).subscribe(function (curtain) { return curtain.json(); }, function (error) { return console.log(error); }, function () { return console.log('Set CURTAIN complete!'); });
+    };
+    ControlComponent.prototype.setCurtainsItemsDown = function () {
+        this._recipeService.setCurtainsDown(false).subscribe(function (curtain) { return curtain.json(); }, function (error) { return console.log(error); }, function () { return console.log('Set CURTAIN complete!'); });
     };
     ControlComponent.prototype.humMin = function () {
         this.myParameters.Humidity--;

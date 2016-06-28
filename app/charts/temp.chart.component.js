@@ -9,12 +9,40 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var recipe_service_1 = require('../recipe/recipe.service');
 var common_1 = require('@angular/common');
 var ng2_charts_1 = require('ng2-charts/ng2-charts');
 var TempChartComponent = (function () {
-    function TempChartComponent() {
+    function TempChartComponent(_recipeService) {
+        this._recipeService = _recipeService;
+        this.otherParameters = [
+            { id_parameters: 0, TimeStamp: new Date(2016, 0, 0), AirTemperature: 0.0, WaterTemperature: 0.0, Humidity: 0, PH: 0.0, Conductivity: 0 },
+            { id_parameters: 0, TimeStamp: new Date(2016, 0, 0), AirTemperature: 0.0, WaterTemperature: 0.0, Humidity: 0, PH: 0.0, Conductivity: 0 },
+            { id_parameters: 0, TimeStamp: new Date(2016, 0, 0), AirTemperature: 0.0, WaterTemperature: 0.0, Humidity: 0, PH: 0.0, Conductivity: 0 },
+            { id_parameters: 0, TimeStamp: new Date(2016, 0, 0), AirTemperature: 0.0, WaterTemperature: 0.0, Humidity: 0, PH: 0.0, Conductivity: 0 },
+            { id_parameters: 0, TimeStamp: new Date(2016, 0, 0), AirTemperature: 0.0, WaterTemperature: 0.0, Humidity: 0, PH: 0.0, Conductivity: 0 },
+            { id_parameters: 0, TimeStamp: new Date(2016, 0, 0), AirTemperature: 0.0, WaterTemperature: 0.0, Humidity: 0, PH: 0.0, Conductivity: 0 },
+            { id_parameters: 0, TimeStamp: new Date(2016, 0, 0), AirTemperature: 0.0, WaterTemperature: 0.0, Humidity: 0, PH: 0.0, Conductivity: 0 },
+            { id_parameters: 0, TimeStamp: new Date(2016, 0, 0), AirTemperature: 0.0, WaterTemperature: 0.0, Humidity: 0, PH: 0.0, Conductivity: 0 },
+            { id_parameters: 0, TimeStamp: new Date(2016, 0, 0), AirTemperature: 0.0, WaterTemperature: 0.0, Humidity: 0, PH: 0.0, Conductivity: 0 },
+            { id_parameters: 0, TimeStamp: new Date(2016, 0, 0), AirTemperature: 0.0, WaterTemperature: 0.0, Humidity: 0, PH: 0.0, Conductivity: 0 },
+            { id_parameters: 0, TimeStamp: new Date(2016, 0, 0), AirTemperature: 0.0, WaterTemperature: 0.0, Humidity: 0, PH: 0.0, Conductivity: 0 },
+            { id_parameters: 0, TimeStamp: new Date(2016, 0, 0), AirTemperature: 0.0, WaterTemperature: 0.0, Humidity: 0, PH: 0.0, Conductivity: 0 },
+            { id_parameters: 0, TimeStamp: new Date(2016, 0, 0), AirTemperature: 0.0, WaterTemperature: 0.0, Humidity: 0, PH: 0.0, Conductivity: 0 },
+            { id_parameters: 0, TimeStamp: new Date(2016, 0, 0), AirTemperature: 0.0, WaterTemperature: 0.0, Humidity: 0, PH: 0.0, Conductivity: 0 },
+            { id_parameters: 0, TimeStamp: new Date(2016, 0, 0), AirTemperature: 0.0, WaterTemperature: 0.0, Humidity: 0, PH: 0.0, Conductivity: 0 },
+            { id_parameters: 0, TimeStamp: new Date(2016, 0, 0), AirTemperature: 0.0, WaterTemperature: 0.0, Humidity: 0, PH: 0.0, Conductivity: 0 },
+            { id_parameters: 0, TimeStamp: new Date(2016, 0, 0), AirTemperature: 0.0, WaterTemperature: 0.0, Humidity: 0, PH: 0.0, Conductivity: 0 },
+            { id_parameters: 0, TimeStamp: new Date(2016, 0, 0), AirTemperature: 0.0, WaterTemperature: 0.0, Humidity: 0, PH: 0.0, Conductivity: 0 },
+            { id_parameters: 0, TimeStamp: new Date(2016, 0, 0), AirTemperature: 0.0, WaterTemperature: 0.0, Humidity: 0, PH: 0.0, Conductivity: 0 },
+            { id_parameters: 0, TimeStamp: new Date(2016, 0, 0), AirTemperature: 0.0, WaterTemperature: 0.0, Humidity: 0, PH: 0.0, Conductivity: 0 },
+            { id_parameters: 0, TimeStamp: new Date(2016, 0, 0), AirTemperature: 0.0, WaterTemperature: 0.0, Humidity: 0, PH: 0.0, Conductivity: 0 },
+            { id_parameters: 0, TimeStamp: new Date(2016, 0, 0), AirTemperature: 0.0, WaterTemperature: 0.0, Humidity: 0, PH: 0.0, Conductivity: 0 },
+            { id_parameters: 0, TimeStamp: new Date(2016, 0, 0), AirTemperature: 0.0, WaterTemperature: 0.0, Humidity: 0, PH: 0.0, Conductivity: 0 },
+            { id_parameters: 0, TimeStamp: new Date(2016, 0, 0), AirTemperature: 0.0, WaterTemperature: 0.0, Humidity: 0, PH: 0.0, Conductivity: 0 }
+        ];
         this.lineChartData = [
-            { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' },
+            { data: [this.otherParameters[23].AirTemperature, this.otherParameters[22].AirTemperature, this.otherParameters[21].AirTemperature, this.otherParameters[20].AirTemperature, this.otherParameters[19].AirTemperature, this.otherParameters[18].AirTemperature, this.otherParameters[17].AirTemperature, this.otherParameters[16].AirTemperature, this.otherParameters[15].AirTemperature, this.otherParameters[14].AirTemperature, this.otherParameters[13].AirTemperature, this.otherParameters[12].AirTemperature, this.otherParameters[11].AirTemperature, this.otherParameters[10].AirTemperature, this.otherParameters[9].AirTemperature, this.otherParameters[8].AirTemperature, this.otherParameters[7].AirTemperature, this.otherParameters[6].AirTemperature, this.otherParameters[5].AirTemperature, this.otherParameters[4].AirTemperature, this.otherParameters[3].AirTemperature, this.otherParameters[2].AirTemperature, this.otherParameters[1].AirTemperature, this.otherParameters[0].AirTemperature], label: 'Series A' },
         ];
         this.lineChartLabels = ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00'];
         this.lineChartOptions = {
@@ -50,15 +78,14 @@ var TempChartComponent = (function () {
         this.lineChartLegend = true;
         this.lineChartType = 'line';
     }
-    TempChartComponent.prototype.randomize = function () {
-        var _lineChartData = new Array(this.lineChartData.length);
-        for (var i = 0; i < this.lineChartData.length; i++) {
-            _lineChartData[i] = { data: new Array(this.lineChartData[i].data.length), label: this.lineChartData[i].label };
-            for (var j = 0; j < this.lineChartData[i].data.length; j++) {
-                _lineChartData[i].data[j] = Math.floor((Math.random() * 100) + 1);
-            }
-        }
-        this.lineChartData = _lineChartData;
+    TempChartComponent.prototype.ngOnInit = function () {
+        this.getParametersItems();
+    };
+    TempChartComponent.prototype.getParametersItems = function () {
+        var _this = this;
+        this._recipeService.getParameters().subscribe(function (parameter) {
+            _this.otherParameters = parameter.json();
+        }, function (error) { return console.log(error); }, function () { return console.log('Get all PARAMETERS complete!'); });
     };
     // events
     TempChartComponent.prototype.chartClicked = function (e) {
@@ -70,11 +97,12 @@ var TempChartComponent = (function () {
     TempChartComponent = __decorate([
         core_1.Component({
             selector: 'my-temp-chart',
+            providers: [recipe_service_1.RecipeService],
             templateUrl: 'app/charts/chart.component.html',
             styleUrls: ['app/charts/chart.component.css'],
             directives: [ng2_charts_1.CHART_DIRECTIVES, common_1.NgClass, common_1.CORE_DIRECTIVES, common_1.FORM_DIRECTIVES]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [recipe_service_1.RecipeService])
     ], TempChartComponent);
     return TempChartComponent;
 }());

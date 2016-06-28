@@ -16,9 +16,10 @@ export class ControlComponent implements OnInit {
 
     public errorMessage: string;
     public otherParameters: ClassParameters[] = [
-        {  TimeStamp: new Date(2016, 0, 0), AirTemperature: 0.0, WaterTemperature: 0.0, Humidity: 0, PH: 0.0, Conductivity: 0 }
+        { id_parameters: 0, TimeStamp: new Date(2016, 0, 0), AirTemperature: 0.0, WaterTemperature: 0.0, Humidity: 0, PH: 0.0, Conductivity: 0 }
     ];
     public myParameters: ClassParameters = {
+        id_parameters: 0,
         TimeStamp: new Date(1993, 2, 3),
         AirTemperature: 0.0,
         WaterTemperature: 0.0,
@@ -35,6 +36,7 @@ export class ControlComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.getParametersItems();
     }
 
     private getParametersItems(): void {
@@ -56,8 +58,15 @@ export class ControlComponent implements OnInit {
             () => console.log('Set all PARAMETERS complete!'));
     }
 
-    private setCurtainsItem() {
-        this._recipeService.setCurtains(this.setCurtains).subscribe(
+    private setCurtainsItemsUp() {
+        this._recipeService.setCurtainsUp(true).subscribe(
+            curtain => curtain.json(),
+            error => console.log(error),
+            () => console.log('Set CURTAIN complete!'));
+    }
+
+    private setCurtainsItemsDown() {
+        this._recipeService.setCurtainsDown(false).subscribe(
             curtain => curtain.json(),
             error => console.log(error),
             () => console.log('Set CURTAIN complete!'));

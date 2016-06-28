@@ -1,0 +1,27 @@
+<div class="row"><button class="btn btn-default pull-right" (click)="setRecipe()">Applica ricetta</button></div>
+<div class="row">
+    <table class="table table-hover text-center table-responsive">
+        <tr class="text-center">
+            <td><b>Numero</b></td>
+            <td><b>Nome</b></td>
+            <td><b>Temperatura aria</b></td>
+            <td><b>Temperatura acqua</b></td>
+            <td><b>Umidità</b></td>
+            <td><b>pH</b></td>
+            <td><b>Conducibilità</b></td>
+            <td><b>RGB</b></td>
+            <td><b>Luce</b></td>
+        </tr>
+        <tr *ngFor="let recipe of myRecipes" class="text-center">
+            <td class="text-center">{{recipe?.id_recipe}}</td>
+            <td class="text-center">{{recipe?.Name}}</td>
+            <td class="text-center">{{recipe?.AirTemperature}}</td>
+            <td class="text-center">{{recipe?.WaterTemperature}}</td>
+            <td class="text-center">{{recipe?.Humidity}}</td>
+            <td class="text-center">{{recipe?.PH}}</td>
+            <td class="text-center">{{recipe?.Conductivity}}</td>
+            <td class="text-center">{{recipe?.RGB}}</td>
+            <td class="text-center">{{recipe?.Light}}</td>
+        </tr>
+    </table>
+</div>
