@@ -1,9 +1,10 @@
+<my-booting [ngClass]="{'hidden':videoHide}" style="position: fixed; z-index: 3000;"></my-booting>
 <div id="wrapper" [ngClass]="{'toggled':menuClosed}">
         <!-- Sidebar -->
         <div id="sidebar-wrapper" style="overflow-x: hidden;">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
-                    <a [routerLink]="['Home-Component']">
+                    <a [routerLink]="['Home-Component']" (click)="closeMenu()">
                         <div class="row"><my-logo></my-logo></div>
                     </a>
                 </li>
@@ -24,6 +25,9 @@
                 </li>
                 <li>
                     <div><a [routerLink]="['Avanz-Component']" (click)="closeMenu()"><img src="../app/ext/icov2/settingsW.png" class="ico" >Advanced</a></div>
+                </li>
+                <li>
+                    <div><a [routerLink]="['Shutdown-Component']" (click)="closeMenu()"><img src="../app/ext/icov2/shutdownB.png" class="ico" >Shutdown</a></div>
                 </li>
             </ul>
         </div>

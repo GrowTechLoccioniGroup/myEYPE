@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core'
 
 @Injectable()
 export class Config {
-    public ServerWithApiUrl = "http://localhost:9000/api";
+   public ServerWithApiUrl = "http://DESKTOP-80MK0K7:9000/api";
+   //public ServerWithApiUrl = "http://172.17.83.99:9000/api";
+
 }
 /*
     + setparamiters -> in put solo i 3

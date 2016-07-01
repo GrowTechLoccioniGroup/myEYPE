@@ -19,10 +19,20 @@ var guide_component_1 = require('./guide/guide.component');
 var site_component_1 = require('./site/site.component');
 var avanz_component_1 = require('./avanz/avanz.component');
 var logo_component_1 = require('./logo/logo.component');
+var booting_component_1 = require('./booting/booting.component');
+var shutdown_component_1 = require('./shutdown/shutdown.component');
 var AppComponent = (function () {
     function AppComponent() {
-        this.menuClosed = true;
+        this.menuClosed = false;
+        this.videoHide = false;
     }
+    AppComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        setTimeout(function () {
+            _this.videoHide = true;
+            console.log(_this.videoHide);
+        }, 7000);
+    };
     AppComponent.prototype.closeMenu = function () {
         this.menuClosed = !this.menuClosed;
     };
@@ -31,7 +41,7 @@ var AppComponent = (function () {
             selector: 'my-app',
             templateUrl: 'app/app.component.html',
             styleUrls: ['app/app.component.css'],
-            directives: [router_deprecated_1.ROUTER_DIRECTIVES, hamburger_component_1.HamburgerComponent, logo_component_1.LogoComponent],
+            directives: [router_deprecated_1.ROUTER_DIRECTIVES, hamburger_component_1.HamburgerComponent, logo_component_1.LogoComponent, booting_component_1.BootingComponent],
             providers: [router_deprecated_1.ROUTER_PROVIDERS]
         }),
         router_deprecated_1.RouteConfig([
@@ -70,6 +80,11 @@ var AppComponent = (function () {
                 path: './avanz/avanz.component',
                 name: 'Avanz-Component',
                 component: avanz_component_1.AvanzComponent
+            },
+            {
+                path: './shutdown/shutdown.component',
+                name: 'Shutdown-Component',
+                component: shutdown_component_1.ShutdownComponent
             }
         ]), 
         __metadata('design:paramtypes', [])
