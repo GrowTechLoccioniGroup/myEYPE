@@ -31,6 +31,10 @@ export class RecipeService {
         return this._http.get(this.actionUrl + "/recipes");
     }
 
+    public getShutdown = (): Observable<Response> => {
+        return this._http.get(this.actionUrl + "/shutdown");
+    }
+
     /*public getSingle = (id: number): Observable<Response> => {
         return this._http.get(this.actionUrl + id);
     }*/
@@ -60,7 +64,7 @@ export class RecipeService {
     }
 
     public setRecipe = (itemToUpdate: ClassRecipe): Observable<Response> => {
-        return this._http.put(this.actionUrl + "/recipesapply", JSON.stringify(itemToUpdate), { headers: this.headers });
+        return this._http.put(this.actionUrl + "/recipes/apply", JSON.stringify(itemToUpdate), { headers: this.headers });
     }
     /*
     public delete = (id: number): Observable<Response> => {

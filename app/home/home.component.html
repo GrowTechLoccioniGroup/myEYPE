@@ -2,39 +2,48 @@
     <div class="row">
         <div class="col-sm-4">
             <div class="row">
-                <div class="airT base text-center center-block">{{otherParameters[0]?.AirTemperature | number: '1.0-1'}} °C</div>
-                <p class="text-center">T Aria</p>
+                <div class="airT base text-black text-center center-block inline">{{otherParameters[0]?.AirTemperature | number: '1.0-1'}} °C</div>
+                <p class="text-center">T. Aria</p>
             </div>
 
             <div class="row">
-                <div class="waterT base text-center center-block">{{otherParameters[0]?.WaterTemperature | number: '1.0-1'}} °C</div>
-                <p class="text-center">T Acqua</p>
+                <div class="waterT base text-black text-center center-block inline">{{otherParameters[0]?.WaterTemperature | number: '1.0-1'}} °C</div>
+                <p class="text-center">T. Acqua</p>
             </div>
 
             <div class="row">
-                <div class="hum base text-center center-block">{{otherParameters[0]?.Humidity}} %</div>
-                <p class="text-center">Umidità</p>
+                <div class="pH base text-black text-center center-block inline">{{otherParameters[0]?.PH | number: '1.0-1'}}</div>
+                <p class="text-center">pH</p>
             </div>
         </div>
 
         <div class="col-sm-4 center-block size text-center"><img src="{{plant}}" class="img-responsive">
-            <div class="row"><h5>{{NomePainta}}</h5></div>
-            <div class="row"><my-switch></my-switch></div>
+            <div class="row">
+                <h2>{{name}}</h2>
+            </div>
+            <div class="row">
+                <label class="switch">
+                    <input type="checkbox" [(ngModel)]="myOptions.Light" (click)="setOptionsItems()"/>
+              
+                    <div class="slider round"></div>
+                </label>
+            </div>
+            <div class="row">Luce</div>
         </div>
-        
+
         <div class="col-sm-4">
             <div class="row">
-                <div class="hum base text-center center-block">{{otherParameters[0]?.Conductivity}}</div>
+                <div class="hum base text-black text-center center-block inline">{{otherParameters[0]?.Humidity}} %</div>
+                <p class="text-center">Umidità</p>
+            </div>
+
+            <div class="row">
+                <div class="cond base text-black text-center center-block inline">{{otherParameters[0]?.Conductivity}} &#181;S/cm</div>
                 <p class="text-center">Conducibilità</p>
             </div>
 
             <div class="row">
-                <div class="pH base text-center center-block">{{otherParameters[0]?.PH | number: '1.0-1'}}</div>
-                <p class="text-center">pH</p>
-            </div>
-
-            <div class="row">
-                <div class="rgb base text-center center-block">{{otherOptions[0]?.RGB}}</div>
+                <div class="rgb base text-black text-center center-block inline">{{otherOptions?.RGB}}</div>
                 <p class="text-center">RGB</p>
             </div>
 

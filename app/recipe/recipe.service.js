@@ -25,6 +25,9 @@ var RecipeService = (function () {
         this.getRecipes = function () {
             return _this._http.get(_this.actionUrl + "/recipes");
         };
+        this.getShutdown = function () {
+            return _this._http.get(_this.actionUrl + "/shutdown");
+        };
         /*public getSingle = (id: number): Observable<Response> => {
             return this._http.get(this.actionUrl + id);
         }*/
@@ -48,7 +51,7 @@ var RecipeService = (function () {
             return _this._http.put(_this.actionUrl + "/values/setcurtains/1", JSON.stringify(setCurtains), { headers: _this.headers });
         };
         this.setRecipe = function (itemToUpdate) {
-            return _this._http.put(_this.actionUrl + "/recipesapply", JSON.stringify(itemToUpdate), { headers: _this.headers });
+            return _this._http.put(_this.actionUrl + "/recipes/apply", JSON.stringify(itemToUpdate), { headers: _this.headers });
         };
         this.actionUrl = _config.ServerWithApiUrl;
         this.headers = new http_1.Headers();

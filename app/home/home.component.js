@@ -11,16 +11,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var recipe_service_1 = require('../recipe/recipe.service');
 var switch_component_1 = require('../switch/switch.component');
+var common_1 = require('@angular/common');
 var HomeComponent = (function () {
     function HomeComponent(_recipeService) {
         this._recipeService = _recipeService;
-        this.plant = "../app/ext/plants/insalata.png";
+        this.plant = "../app/ext/plants/Insalata.png";
         this.otherOptions = {
             id_parameters: 0,
             RGB: "",
             Light: false,
             AdressImage: ""
         };
+        this.myOptions = {
+            id_parameters: 0,
+            RGB: "",
+            Light: true,
+            AdressImage: ""
+        };
+        this.name = "Insalata";
         this.otherParameters = [
             { id_parameters: 0, TimeStamp: new Date(2016, 0, 0), AirTemperature: 0.0, WaterTemperature: 0.0, Humidity: 0, PH: 0.0, Conductivity: 0 }
         ];
@@ -39,7 +47,12 @@ var HomeComponent = (function () {
         var _this = this;
         this._recipeService.getOptions().subscribe(function (option) {
             _this.otherOptions = option.json();
+            _this.myOptions = _this.otherOptions;
         }, function (error) { return console.log(error); }, function () { return console.log('Get all Options complete'); });
+    };
+    HomeComponent.prototype.setOptionsItems = function () {
+        this.myOptions.Light = !this.myOptions.Light;
+        this._recipeService.setOptions(this.myOptions).subscribe(function (data) { return console.log(data); }, function (error) { return console.log(error); }, function () { return console.log('Set all Options complete'); });
     };
     HomeComponent = __decorate([
         core_1.Component({
@@ -47,7 +60,7 @@ var HomeComponent = (function () {
             providers: [recipe_service_1.RecipeService],
             templateUrl: 'app/home/home.component.html',
             styleUrls: ['app/home/home.component.css'],
-            directives: [switch_component_1.SwitchComponent]
+            directives: [common_1.FORM_DIRECTIVES, switch_component_1.SwitchComponent]
         }), 
         __metadata('design:paramtypes', [recipe_service_1.RecipeService])
     ], HomeComponent);

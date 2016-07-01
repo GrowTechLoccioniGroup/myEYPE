@@ -28,6 +28,9 @@ var RecipeComponent = (function () {
     RecipeComponent.prototype.ngOnInit = function () {
         this.getRecipesItems();
     };
+    RecipeComponent.prototype.selectedRow = function (recipe) {
+        this.myRecipe = recipe;
+    };
     RecipeComponent.prototype.getRecipesItems = function () {
         var _this = this;
         this._recipeService.getRecipes().subscribe(function (recipe) {

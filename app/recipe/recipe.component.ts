@@ -3,7 +3,7 @@ import { ClassRecipe } from '../classes/class.recipe';
 import { RecipeService } from '../recipe/recipe.service';
 
 @Component({
-    selector:'my-recipe',
+    selector: 'my-recipe',
     providers: [RecipeService],
     templateUrl: 'app/recipe/recipe.component.html',
     styleUrls: ['app/recipe/recipe.component.css']
@@ -26,8 +26,12 @@ export class RecipeComponent implements OnInit {
     constructor(private _recipeService: RecipeService) {
     }
 
-    ngOnInit(){
+    ngOnInit() {
         this.getRecipesItems();
+    }
+
+    selectedRow(recipe) {
+        this.myRecipe = recipe;
     }
 
     private getRecipesItems(): void {
@@ -40,7 +44,6 @@ export class RecipeComponent implements OnInit {
     }
 
     private setRecipe() {
-        
         this._recipeService.setRecipe(this.myRecipe).subscribe(
             data => console.log(data),
             error => console.log(error),
