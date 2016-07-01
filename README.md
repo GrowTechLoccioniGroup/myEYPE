@@ -1,5 +1,5 @@
 # myEYPE
 
-Is an app developed by the startup GrowTech.
+App developed by the startup GrowTech.
 
-Websit: http://www.growtech.loccioni.com
+Website: http://growtech.loccioni.com
