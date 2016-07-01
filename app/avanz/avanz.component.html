@@ -1,20 +1,19 @@
 <div class="container">
     <div class="row">
-        <h4>Luce</h4>
-        <my-switch (click)="lightState()" class="pull-right"></my-switch> 
-    </div>
-    <div class="row">
-        <h4>Valore RGB</h4>
+        <h4>Valori RGB</h4>
     </div>
     <div class="row text-center center-block">
         <h3 class="first">R: {{r}}</h3>
-        <p-slider [(ngModel)]="r" [style]="{'width':'100%'}" [min]="0" [max]="255"></p-slider>
+        <p-slider [(ngModel)]="r" [style]="{'width':'100%','background-color':'rgb(255, 0, 0)'}" [min]="0" [max]="255"></p-slider>
         <h3 class="first">G: {{g}}</h3>
-        <p-slider [(ngModel)]="g" [style]="{'width':'100%'}" [min]="0" [max]="255"></p-slider>
+        <p-slider [(ngModel)]="g" [style]="{'width':'100%','background-color':'rgb(0, 255, 0)'}" [min]="0" [max]="255"></p-slider>
         <h3 class="first">B: {{b}}</h3>
-        <p-slider [(ngModel)]="b" [style]="{'width':'100%'}" [min]="0" [max]="255"></p-slider>
+        <p-slider [(ngModel)]="b" [style]="{'width':'100%','background-color':'rgb(0, 0, 255)'}" [min]="0" [max]="255"></p-slider>
     </div>
-
-    <buttin class="btn btn-default" (click)="getOptionsItems()">Get Options</buttin>
-    <buttin class="btn btn-default" (click)="setOptionsItems()">Set Options</buttin>
+    <div class="row">
+        <div class="center-block dim-color"></div>
+    </div>
+    <div class="row mar">
+        <button class="btn btn-default pull-right" (click)="setOptionsItems()">Applica valori</button>
+    </div>
 </div>

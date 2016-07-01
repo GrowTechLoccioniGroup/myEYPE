@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
+import { CORE_DIRECTIVES, NgSwitch, NgSwitchWhen } from '@angular/common';
 import { RecipeService } from '../recipe/recipe.service';
 import { ClassParameters } from '../classes/class.parameters';
 import { Slider } from 'primeng/primeng';
@@ -9,11 +9,11 @@ import { Slider } from 'primeng/primeng';
     providers: [RecipeService],
     templateUrl: 'app/control/control.component.html',
     styleUrls: ['app/control/control.component.css'],
-    directives: [CORE_DIRECTIVES, Slider]
+    directives: [CORE_DIRECTIVES, Slider, NgSwitch, NgSwitchWhen]
 })
 
 export class ControlComponent implements OnInit {
-
+    public curtain: boolean = false;
     public errorMessage: string;
     public otherParameters: ClassParameters[] = [
         { id_parameters: 0, TimeStamp: new Date(2016, 0, 0), AirTemperature: 0.0, WaterTemperature: 0.0, Humidity: 0, PH: 0.0, Conductivity: 0 }
@@ -59,17 +59,25 @@ export class ControlComponent implements OnInit {
     }
 
     private setCurtainsItemsUp() {
-        this._recipeService.setCurtainsUp(true).subscribe(
-            curtain => curtain.json(),
-            error => console.log(error),
-            () => console.log('Set CURTAIN complete!'));
+        if (this.curtain == false) {
+            this._recipeService.setCurtainsUp(true).subscribe(
+                curtain => curtain.json(),
+                error => console.log(error),
+                () => console.log('Set CURTAIN complete!'));
+            this.curtain = true;
+        }
+
     }
 
     private setCurtainsItemsDown() {
-        this._recipeService.setCurtainsDown(false).subscribe(
-            curtain => curtain.json(),
-            error => console.log(error),
-            () => console.log('Set CURTAIN complete!'));
+        if (this.curtain == true) {
+            this._recipeService.setCurtainsDown(false).subscribe(
+                curtain => curtain.json(),
+                error => console.log(error),
+                () => console.log('Set CURTAIN complete!'));
+            this.curtain = false;
+        }
+
     }
 
     humMin() {

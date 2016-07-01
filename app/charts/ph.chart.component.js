@@ -42,7 +42,7 @@ var PhChartComponent = (function () {
             { id_parameters: 0, TimeStamp: new Date(2016, 0, 0), AirTemperature: 0.0, WaterTemperature: 0.0, Humidity: 0, PH: 0.0, Conductivity: 0 }
         ];
         this.lineChartData = [
-            { data: [this.otherParameters[23].PH, this.otherParameters[22].PH, this.otherParameters[21].PH, this.otherParameters[20].PH, this.otherParameters[19].PH, this.otherParameters[18].PH, this.otherParameters[17].PH, this.otherParameters[16].PH, this.otherParameters[15].PH, this.otherParameters[14].PH, this.otherParameters[13].PH, this.otherParameters[12].PH, this.otherParameters[11].PH, this.otherParameters[10].PH, this.otherParameters[9].PH, this.otherParameters[8].PH, this.otherParameters[7].PH, this.otherParameters[6].PH, this.otherParameters[5].PH, this.otherParameters[4].PH, this.otherParameters[3].PH, this.otherParameters[2].PH, this.otherParameters[1].PH, this.otherParameters[0].PH], label: 'Series A' },
+            { data: [this.otherParameters[23].PH, this.otherParameters[22].PH, this.otherParameters[21].PH, this.otherParameters[20].PH, this.otherParameters[19].PH, this.otherParameters[18].PH, this.otherParameters[17].PH, this.otherParameters[16].PH, this.otherParameters[15].PH, this.otherParameters[14].PH, this.otherParameters[13].PH, this.otherParameters[12].PH, this.otherParameters[11].PH, this.otherParameters[10].PH, this.otherParameters[9].PH, this.otherParameters[8].PH, this.otherParameters[7].PH, this.otherParameters[6].PH, this.otherParameters[5].PH, this.otherParameters[4].PH, this.otherParameters[3].PH, this.otherParameters[2].PH, this.otherParameters[1].PH, this.otherParameters[0].PH], label: 'pH' },
         ];
         this.lineChartLabels = ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00'];
         this.lineChartOptions = {
@@ -85,8 +85,13 @@ var PhChartComponent = (function () {
         var _this = this;
         this._recipeService.getParameters().subscribe(function (parameter) {
             _this.otherParameters = parameter.json();
+            if (_this.otherParameters.length < 24) {
+                for (var i = _this.otherParameters.length; i < 24; i++) {
+                    _this.otherParameters[i] = { id_parameters: 0, TimeStamp: new Date(2016, 0, 0), AirTemperature: 0.0, WaterTemperature: 0.0, Humidity: 0, PH: 0.0, Conductivity: 0 };
+                }
+            }
             _this.lineChartData = [
-                { data: [_this.otherParameters[23].PH, _this.otherParameters[22].PH, _this.otherParameters[21].PH, _this.otherParameters[20].PH, _this.otherParameters[19].PH, _this.otherParameters[18].PH, _this.otherParameters[17].PH, _this.otherParameters[16].PH, _this.otherParameters[15].PH, _this.otherParameters[14].PH, _this.otherParameters[13].PH, _this.otherParameters[12].PH, _this.otherParameters[11].PH, _this.otherParameters[10].PH, _this.otherParameters[9].PH, _this.otherParameters[8].PH, _this.otherParameters[7].PH, _this.otherParameters[6].PH, _this.otherParameters[5].PH, _this.otherParameters[4].PH, _this.otherParameters[3].PH, _this.otherParameters[2].PH, _this.otherParameters[1].PH, _this.otherParameters[0].PH], label: 'Series A' },
+                { data: [_this.otherParameters[23].PH, _this.otherParameters[22].PH, _this.otherParameters[21].PH, _this.otherParameters[20].PH, _this.otherParameters[19].PH, _this.otherParameters[18].PH, _this.otherParameters[17].PH, _this.otherParameters[16].PH, _this.otherParameters[15].PH, _this.otherParameters[14].PH, _this.otherParameters[13].PH, _this.otherParameters[12].PH, _this.otherParameters[11].PH, _this.otherParameters[10].PH, _this.otherParameters[9].PH, _this.otherParameters[8].PH, _this.otherParameters[7].PH, _this.otherParameters[6].PH, _this.otherParameters[5].PH, _this.otherParameters[4].PH, _this.otherParameters[3].PH, _this.otherParameters[2].PH, _this.otherParameters[1].PH, _this.otherParameters[0].PH], label: 'pH' },
             ];
         }, function (error) { return console.log(error); }, function () { return console.log('Get all PARAMETERS complete!'); });
     };

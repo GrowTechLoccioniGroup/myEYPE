@@ -42,7 +42,7 @@ var UmidChartComponent = (function () {
             { id_parameters: 0, TimeStamp: new Date(2016, 0, 0), AirTemperature: 0.0, WaterTemperature: 0.0, Humidity: 0, PH: 0.0, Conductivity: 0 }
         ];
         this.lineChartData = [
-            { data: [this.otherParameters[23].Humidity, this.otherParameters[22].Humidity, this.otherParameters[21].Humidity, this.otherParameters[20].Humidity, this.otherParameters[19].Humidity, this.otherParameters[18].Humidity, this.otherParameters[17].Humidity, this.otherParameters[16].Humidity, this.otherParameters[15].Humidity, this.otherParameters[14].Humidity, this.otherParameters[13].Humidity, this.otherParameters[12].Humidity, this.otherParameters[11].Humidity, this.otherParameters[10].Humidity, this.otherParameters[9].Humidity, this.otherParameters[8].Humidity, this.otherParameters[7].Humidity, this.otherParameters[6].Humidity, this.otherParameters[5].Humidity, this.otherParameters[4].Humidity, this.otherParameters[3].Humidity, this.otherParameters[2].Humidity, this.otherParameters[1].Humidity, this.otherParameters[0].Humidity], label: 'Series A' },
+            { data: [this.otherParameters[23].Humidity, this.otherParameters[22].Humidity, this.otherParameters[21].Humidity, this.otherParameters[20].Humidity, this.otherParameters[19].Humidity, this.otherParameters[18].Humidity, this.otherParameters[17].Humidity, this.otherParameters[16].Humidity, this.otherParameters[15].Humidity, this.otherParameters[14].Humidity, this.otherParameters[13].Humidity, this.otherParameters[12].Humidity, this.otherParameters[11].Humidity, this.otherParameters[10].Humidity, this.otherParameters[9].Humidity, this.otherParameters[8].Humidity, this.otherParameters[7].Humidity, this.otherParameters[6].Humidity, this.otherParameters[5].Humidity, this.otherParameters[4].Humidity, this.otherParameters[3].Humidity, this.otherParameters[2].Humidity, this.otherParameters[1].Humidity, this.otherParameters[0].Humidity], label: 'Umidità' },
         ];
         this.lineChartLabels = ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00'];
         this.lineChartOptions = {
@@ -51,12 +51,12 @@ var UmidChartComponent = (function () {
         };
         this.lineChartColours = [
             {
-                backgroundColor: 'rgba(148,159,177,0.2)',
-                borderColor: 'rgba(148,159,177,1)',
-                pointBackgroundColor: 'rgba(148,159,177,1)',
+                backgroundColor: 'rgba(107, 163, 185, 0.2)',
+                borderColor: 'rgba(107, 163, 185, 1)',
+                pointBackgroundColor: 'rgba(107, 163, 185, 1))',
                 pointBorderColor: '#fff',
                 pointHoverBackgroundColor: '#fff',
-                pointHoverBorderColor: 'rgba(148,159,177,0.8)'
+                pointHoverBorderColor: 'rgba(107, 163, 185, 0.8)'
             },
             {
                 backgroundColor: 'rgba(77,83,96,0.2)',
@@ -67,12 +67,12 @@ var UmidChartComponent = (function () {
                 pointHoverBorderColor: 'rgba(77,83,96,1)'
             },
             {
-                backgroundColor: 'rgba(148,159,177,0.2)',
-                borderColor: 'rgba(148,159,177,1)',
-                pointBackgroundColor: 'rgba(148,159,177,1)',
+                backgroundColor: 'rgba(107, 163, 185, 0.2)',
+                borderColor: 'rgba(107, 163, 185, 1)',
+                pointBackgroundColor: 'rgba(107, 163, 185, 1))',
                 pointBorderColor: '#fff',
                 pointHoverBackgroundColor: '#fff',
-                pointHoverBorderColor: 'rgba(148,159,177,0.8)'
+                pointHoverBorderColor: 'rgba(107, 163, 185, 0.8)'
             }
         ];
         this.lineChartLegend = true;
@@ -85,6 +85,14 @@ var UmidChartComponent = (function () {
         var _this = this;
         this._recipeService.getParameters().subscribe(function (parameter) {
             _this.otherParameters = parameter.json();
+            if (_this.otherParameters.length < 24) {
+                for (var i = _this.otherParameters.length; i < 24; i++) {
+                    _this.otherParameters[i] = { id_parameters: 0, TimeStamp: new Date(2016, 0, 0), AirTemperature: 0.0, WaterTemperature: 0.0, Humidity: 0, PH: 0.0, Conductivity: 0 };
+                }
+            }
+            _this.lineChartData = [
+                { data: [_this.otherParameters[23].Humidity, _this.otherParameters[22].Humidity, _this.otherParameters[21].Humidity, _this.otherParameters[20].Humidity, _this.otherParameters[19].Humidity, _this.otherParameters[18].Humidity, _this.otherParameters[17].Humidity, _this.otherParameters[16].Humidity, _this.otherParameters[15].Humidity, _this.otherParameters[14].Humidity, _this.otherParameters[13].Humidity, _this.otherParameters[12].Humidity, _this.otherParameters[11].Humidity, _this.otherParameters[10].Humidity, _this.otherParameters[9].Humidity, _this.otherParameters[8].Humidity, _this.otherParameters[7].Humidity, _this.otherParameters[6].Humidity, _this.otherParameters[5].Humidity, _this.otherParameters[4].Humidity, _this.otherParameters[3].Humidity, _this.otherParameters[2].Humidity, _this.otherParameters[1].Humidity, _this.otherParameters[0].Humidity], label: 'Umidità' },
+            ];
         }, function (error) { return console.log(error); }, function () { return console.log('Get all PARAMETERS complete!'); });
     };
     // events

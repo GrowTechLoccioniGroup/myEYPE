@@ -7,3 +7,15 @@
 .pos {
     position: relative;
 }
+
+.dim-color {
+    height: 20%;
+    width: 20%;
+    border-radius: 50%;
+    background-color: #000;
+    display: block;
+}
+
+.mar {
+    margin-top: 10px;
+}

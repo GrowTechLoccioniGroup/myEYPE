@@ -27,22 +27,42 @@ var AvanzComponent = (function () {
             Light: false,
             AdressImage: ""
         };
+        this.rS = "";
+        this.gS = "";
+        this.bS = "";
         this.r = 0;
         this.g = 0;
         this.b = 0;
     }
     AvanzComponent.prototype.ngOnInit = function () {
+        this.getOptionsItems();
     };
-    AvanzComponent.prototype.lightState = function () {
+    /*lightState() {
         this.myOptions.Light = !this.myOptions.Light;
-    };
+    }*/
     AvanzComponent.prototype.getOptionsItems = function () {
         var _this = this;
         this._recipeService.getOptions().subscribe(function (option) {
+            console.log("DONE");
             _this.otherOptions = option.json();
+            var x = _this.otherOptions.RGB.split("-");
+            console.log(x);
+            _this.r = parseInt(x[0]);
+            console.log(_this.r);
+            _this.g = parseInt(x[1]);
+            console.log(_this.g);
+            _this.b = parseInt(x[2]);
+            console.log(_this.b);
         }, function (error) { return console.log(error); }, function () { return console.log('Get all Options complete'); });
+        /* if (this.otherOptions.RGB.length > 3) {
+             let x = this.otherOptions.RGB.split("-");
+             this.r = parseInt(x[0]);
+             this.g = parseInt(x[1]);
+             this.b = parseInt(x[2]);
+         }*/
     };
     AvanzComponent.prototype.setOptionsItems = function () {
+        this.myOptions.RGB = this.r + "-" + this.g + "-" + this.b;
         this._recipeService.setOptions(this.myOptions).subscribe(function (data) { return console.log(data); }, function (error) { return console.log(error); }, function () { return console.log('Set all Options complete'); });
     };
     AvanzComponent = __decorate([

@@ -1,66 +1,66 @@
-<div class="container" style="overflow-x: hidden;">
+<div class="container">
     <div class="row">
         <div class="col-sm-4">
-            <div class="col-sm-6">
-                <div class="row">
-                    <br>
+            <div class="row">
+                <div class="col-sm-6">
+                    <p class="line-heightx">Tende</p>
                 </div>
-                <div class="row text-center">Tende</div>
-            </div>
-            <div class="col-sm-6">
-                <div class="row">
-                    <button class="btn btn-default"><span class="glyphicon glyphicon-triangle-top" (click)="setCurtainsItemsUp()"></span></button>
-                </div>
-                <div class="row">
-                    <button class="btn btn-default"><span class="glyphicon glyphicon-triangle-bottom" (click)="setCurtainsItemsDown()"></span></button>
+                <div class="col-sm-6">
+                    <div class="row line-height">
+                        <button class="btn btn-default" [disabled]="curtain"><span class="glyphicon glyphicon-triangle-top" (click)="setCurtainsItemsUp()"></span></button>
+                    </div>
+                    <div class="row">
+                        <button class="btn btn-default" [disabled]="!curtain"><span class="glyphicon glyphicon-triangle-bottom" (click)="setCurtainsItemsDown()"></span></button>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="col-sm-4">
-            <h2 class="text-center">La mia coltivazione</h2>
+            <div class="row">
+                <h2 class="text-center">La mia coltivazione</h2>
+            </div>
+            <div class="row text-center">
+                <h5 class="first">Temperatura Aria: {{_air}}</h5>
+                <p-slider [(ngModel)]="_air" [style]="{'width':'100%','background-color':'#00AEED'}" [min]="15" [max]="30"></p-slider>
+            </div>
+
+            <div class="row text-center">
+                <h5 class="first">pH: {{_ph}}</h5>
+                <p-slider [(ngModel)]="_ph" [style]="{'width':'100%','background-color':'#FEFF00'}" [step]="0.1" [min]="0" [max]="14">
+
+                </p-slider>
+            </div>
+
+            <div class="row text-center">
+                <h5 class="first">Umidità: {{_hum}}%</h5>
+                <p-slider [(ngModel)]="_hum" [style]="{'width':'100%','background-color':'#6BA3B9'}" [min]="0" [max]="100"></p-slider>
+            </div>
         </div>
         <div class="col-sm-4">
-            <button class="btn btn-default center-block" (click)="setParametersItems()">Applica parametri</button>
-        </div>
+                <button class="btn btn-default center-block line-heightx" (click)="setParametersItems()">Applica parametri</button>
+            </div>
+        <div class="row">
+                <table class="text-center dimensioni table-responsive" width="100%">
+                    <tr class="text-center">
+                        <td colspan="6">
+                            <h3>Dati attuali</h3>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>T. Aria</b></td>
+                        <td><b>T. Acqua</b></td>
+                        <td><b>Umidità</b></td>
+                        <td><b>pH</b></td>
+                        <td><b>Coducibilità</b></td>
+                    </tr>
+                    <tr>
+                        <td>{{otherParameters[0]?.AirTemperature}}</td>
+                        <td>{{otherParameters[0]?.WaterTemperature}}</td>
+                        <td>{{otherParameters[0]?.Humidity}}</td>
+                        <td>{{otherParameters[0]?.PH}}</td>
+                        <td>{{otherParameters[0]?.Conductivity}}</td>
+                    </tr>
+                </table>
+            </div>
     </div>
-    <div class="row">
-
-    </div>
-    <div class="row text-center">
-        <h5 class="first">Temperatura Aria: {{_air}}</h5>
-        <p-slider [(ngModel)]="_air" [style]="{'width':'100%'}" [min]="15" [max]="30"></p-slider>
-    </div>
-
-    <div class="row text-center">
-        <h5 class="first">pH: {{_ph}}</h5>
-        <p-slider [(ngModel)]="_ph" [style]="{'width':'100%'}" [step]="0.1" [min]="0" [max]="14"></p-slider>
-    </div>
-
-    <div class="row text-center">
-        <h5 class="first">Umidità: {{_hum}}%</h5>
-        <p-slider [(ngModel)]="_hum" [style]="{'width':'100%'}" [min]="0" [max]="100"></p-slider>
-    </div>
-
-    <table class="text-center dimensioni" width="100%">
-        <tr class="text-center">
-            <td colspan="6">
-                <h3>Dati attuali</h3>
-            </td>
-        </tr>
-        <tr>
-            <td><b>Nome</b></td>
-            <td><b>Temperatura Aria</b></td>
-            <td><b>Temperatura Acqua</b></td>
-            <td><b>Umidità</b></td>
-            <td><b>pH</b></td>
-            <td><b>Coducibilità</b></td>
-        </tr>
-        <tr>
-            <td>{{otherParameters[0]?.AirTemperature}}</td>
-            <td>{{otherParameters[0]?.WaterTemperature}}</td>
-            <td>{{otherParameters[0]?.Humidity}}</td>
-            <td>{{otherParameters[0]?.PH}}</td>
-            <td>{{otherParameters[0]?.Conductivity}}</td>
-        </tr>
-    </table>
 </div>
