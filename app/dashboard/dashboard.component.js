@@ -9,19 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var common_1 = require('@angular/common');
-var ph_chart_component_1 = require('../charts/ph.chart.component');
-var temp_chart_component_1 = require('../charts/temp.chart.component');
-var umid_chart_component_1 = require('../charts/umid.chart.component');
+var ph_chart_component_1 = require('./charts/ph.chart.component');
+var temp_chart_component_1 = require('./charts/temp.chart.component');
+var umid_chart_component_1 = require('./charts/umid.chart.component');
 var DashboardComponent = (function () {
     function DashboardComponent() {
     }
     DashboardComponent = __decorate([
         core_1.Component({
-            selector: 'my-dashboard',
             templateUrl: 'app/dashboard/dashboard.component.html',
-            styleUrls: ['app/dashboard/dashboard.component.css'],
-            directives: [common_1.CORE_DIRECTIVES, ph_chart_component_1.PhChartComponent, temp_chart_component_1.TempChartComponent, umid_chart_component_1.UmidChartComponent]
+            directives: [ph_chart_component_1.PhChartComponent,
+                temp_chart_component_1.TempChartComponent,
+                umid_chart_component_1.UmidChartComponent]
         }), 
         __metadata('design:paramtypes', [])
     ], DashboardComponent);

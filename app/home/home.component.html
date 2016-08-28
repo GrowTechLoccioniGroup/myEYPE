@@ -2,51 +2,50 @@
     <div class="row">
         <div class="col-sm-4">
             <div class="row">
-                <div class="airT base text-black text-center center-block inline">{{otherParameters[0]?.AirTemperature | number: '1.0-1'}} °C</div>
-                <p class="text-center">T. Aria</p>
+                <div class="airT base text-black text-center center-block inline">{{ServerParameters[0]?.AirTemperature | number: '1.0-1'}} °C</div>
+                <p class="text-center">T Aria</p>
             </div>
 
             <div class="row">
-                <div class="waterT base text-black text-center center-block inline">{{otherParameters[0]?.WaterTemperature | number: '1.0-1'}} °C</div>
-                <p class="text-center">T. Acqua</p>
+                <div class="waterT base text-black text-center center-block inline">{{ServerParameters[0]?.WaterTemperature | number: '1.0-1'}} °C</div>
+                <p class="text-center">T Acqua</p>
             </div>
 
             <div class="row">
-                <div class="pH base text-black text-center center-block inline">{{otherParameters[0]?.PH | number: '1.0-1'}}</div>
+                <div class="base text-black text-center center-block inline" [style.background-color]="phColor(ServerParameters[0]?.PH)">{{ServerParameters[0]?.PH | number: '1.0-1'}}</div>
                 <p class="text-center">pH</p>
             </div>
         </div>
 
-        <div class="col-sm-4 center-block size text-center"><img src="{{plant}}" class="img-responsive">
+        <div class="col-sm-4 center-block size text-center"><img src="{{ServerOptions?.AdressImage}}" class="img-responsive">
             <div class="row">
-                <h2>{{name}}</h2>
+                <h2>{{getName()}}</h2>
             </div>
+            <br>
             <div class="row">
                 <label class="switch">
-                    <input type="checkbox" [(ngModel)]="myOptions.Light" (click)="setOptionsItems()"/>
-              
+                    <input type="checkbox" [(ngModel)]="ClientOptions.Light" (click)="setOptions()"/>
                     <div class="slider round"></div>
                 </label>
             </div>
-            <div class="row">Luce</div>
+            <div class="row">Led</div>
         </div>
 
         <div class="col-sm-4">
             <div class="row">
-                <div class="hum base text-black text-center center-block inline">{{otherParameters[0]?.Humidity}} %</div>
+                <div class="hum base text-black text-center center-block inline">{{ServerParameters[0]?.Humidity}} %</div>
                 <p class="text-center">Umidità</p>
             </div>
 
             <div class="row">
-                <div class="cond base text-black text-center center-block inline">{{otherParameters[0]?.Conductivity}} &#181;S/cm</div>
+                <div class="cond base text-black text-center center-block inline">{{ServerParameters[0]?.Conductivity}} &#181;S/cm</div>
                 <p class="text-center">Conducibilità</p>
             </div>
 
             <div class="row">
-                <div class="rgb base text-black text-center center-block inline">{{otherOptions?.RGB}}</div>
+                <div class="base text-black text-center center-block inline" [style.background-color]="getBGColore()">{{ClientOptions?.RGB}}</div>
                 <p class="text-center">RGB</p>
             </div>
-
         </div>
     </div>
 </div>

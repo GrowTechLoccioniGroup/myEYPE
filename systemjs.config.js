@@ -9,23 +9,22 @@
     '@angular':                   'node_modules/@angular',
     'angular2-in-memory-web-api': 'node_modules/angular2-in-memory-web-api',
     'rxjs':                       'node_modules/rxjs',
-    'ng2-charts':                 'node_modules/ng2-charts',
     'primeng':                    'node_modules/primeng',
-    'primeui':                    'node_modules/primeui'
+    'ng2-charts':                 'node_modules/ng2-charts'
   };
   // packages tells the System loader how to load when no filename and/or no extension
   var packages = {
     'app':                        { main: 'main.js',  defaultExtension: 'js' },
     'rxjs':                       { defaultExtension: 'js' },
     'angular2-in-memory-web-api': { main: 'index.js', defaultExtension: 'js' },
-    'ng2-charts':                 { defaultExtension: 'js' },
     'primeng':                    { defaultExtension: 'js' },
-    'primeui':                    { defaultExtension: 'js' }
+    'ng2-charts':                 { defaultExtension: 'js' }
   };
   var ngPackageNames = [
     'common',
     'compiler',
     'core',
+    'forms',
     'http',
     'platform-browser',
     'platform-browser-dynamic',
@@ -39,7 +38,7 @@
   }
   // Bundled (~40 requests):
   function packUmd(pkgName) {
-    packages['@angular/'+pkgName] = { main: pkgName + '.umd.js', defaultExtension: 'js' };
+    packages['@angular/'+pkgName] = { main: '/bundles/' + pkgName + '.umd.js', defaultExtension: 'js' };
   }
   // Most environments should use UMD; some (Karma) need the individual index files
   var setPackageConfig = System.packageWithIndex ? packIndex : packUmd;

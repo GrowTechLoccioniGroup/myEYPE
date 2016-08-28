@@ -1,0 +1,12 @@
+<h2 class="text-center">Valori RGB</h2>
+<br>
+<div class="container text-center center-block">
+    <h5 class="first">Red: {{r}}</h5>
+    <p-slider [(ngModel)]="r" [style]="{'width':'100%','background-color':'rgb(209, 0, 16)'}" [min]="0" [max]="255"></p-slider>
+    <h5 class="first">Green: {{g}}</h5>
+    <p-slider [(ngModel)]="g" [style]="{'width':'100%','background-color':'rgb(133, 201, 14)'}" [min]="0" [max]="255"></p-slider>
+    <h5 class="first">Blue: {{b}}</h5>
+    <p-slider [(ngModel)]="b" [style]="{'width':'100%','background-color':'rgb(16, 81, 158)'}" [min]="0" [max]="255"></p-slider>
+    <br>
+    <button class="btn btn-success pull-right" (click)="setOptions()">Applica valori</button>
+</div>

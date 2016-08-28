@@ -9,26 +9,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var recipe_service_1 = require('../recipe/recipe.service');
+var calls_service_1 = require('./calls/calls.service');
 var ShutdownComponent = (function () {
-    function ShutdownComponent(_recipeService) {
-        this._recipeService = _recipeService;
+    function ShutdownComponent(calls) {
+        this.calls = calls;
     }
     ShutdownComponent.prototype.ngOnInit = function () {
         this.getShutdown();
     };
     ShutdownComponent.prototype.getShutdown = function () {
-        this._recipeService.getShutdown().subscribe(function (shutdown) {
-            console.log("DONE");
-        }, function (error) { return console.log(error); }, function () { return console.log('Get shutdown complete!'); });
+        this.calls.GetShutdown().subscribe(function (error) { return console.log(error); }, function () { return console.log('Get shutdown complete!'); });
     };
     ShutdownComponent = __decorate([
         core_1.Component({
-            selector: 'my-shutdown',
-            providers: [recipe_service_1.RecipeService],
-            template: '<div class="row"><h1 class="text-center">Spegnimento in corso. Attendere...</h1></div>'
+            template: '<div class="row"><h1 class="text-center">Spegnimento in corso. Attendere...</h1></div>',
+            providers: [calls_service_1.ShutdownCallsService]
         }), 
-        __metadata('design:paramtypes', [recipe_service_1.RecipeService])
+        __metadata('design:paramtypes', [calls_service_1.ShutdownCallsService])
     ], ShutdownComponent);
     return ShutdownComponent;
 }());

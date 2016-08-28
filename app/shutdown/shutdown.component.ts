@@ -1,28 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-import { RecipeService } from '../recipe/recipe.service';
+import { Component, OnInit }    from '@angular/core';
+import { ShutdownCallsService } from './calls/calls.service';
 
 @Component({
-    selector: 'my-shutdown',
-    providers: [RecipeService],
-    template: '<div class="row"><h1 class="text-center">Spegnimento in corso. Attendere...</h1></div>'
+    template: '<div class="row"><h1 class="text-center">Spegnimento in corso. Attendere...</h1></div>',
+    providers: [ ShutdownCallsService ]
 })
 
 export class ShutdownComponent implements OnInit {
 
-    constructor(private _recipeService: RecipeService) {
-    }
+    constructor(
+        private calls: ShutdownCallsService) { }
 
     ngOnInit () {
         this.getShutdown();
     }
 
     private getShutdown(): void {
-        this._recipeService.getShutdown().subscribe(
-            (shutdown) => {
-                console.log("DONE");
-            },
+        this.calls.GetShutdown().subscribe(
             error => console.log(error),
             () => console.log('Get shutdown complete!'));
     }
-
 }

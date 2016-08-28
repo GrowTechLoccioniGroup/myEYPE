@@ -1,0 +1,35 @@
+import { ElementRef, AfterViewInit, EventEmitter } from '@angular/core';
+import { ControlValueAccessor } from '@angular/forms';
+import { DomHandler } from '../dom/domhandler';
+export declare class InputSwitch implements ControlValueAccessor, AfterViewInit {
+    private el;
+    private domHandler;
+    onLabel: string;
+    offLabel: string;
+    disabled: boolean;
+    style: any;
+    styleClass: string;
+    onChange: EventEmitter<any>;
+    checked: boolean;
+    focused: boolean;
+    onModelChange: Function;
+    onModelTouched: Function;
+    private container;
+    private handle;
+    private onContainer;
+    private offContainer;
+    private onLabelChild;
+    private offLabelChild;
+    private offset;
+    initialized: boolean;
+    constructor(el: ElementRef, domHandler: DomHandler);
+    ngAfterViewInit(): void;
+    toggle(event: any, checkbox: any): void;
+    checkUI(): void;
+    uncheckUI(): void;
+    onFocus(event: any): void;
+    onBlur(event: any): void;
+    writeValue(checked: any): void;
+    registerOnChange(fn: Function): void;
+    registerOnTouched(fn: Function): void;
+}

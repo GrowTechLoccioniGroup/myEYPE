@@ -14,9 +14,7 @@ var GuideComponent = (function () {
     }
     GuideComponent = __decorate([
         core_1.Component({
-            selector: 'my-guide',
-            templateUrl: 'app/guide/guide.component.html',
-            styleUrls: ['app/guide/guide.component.css']
+            templateUrl: 'app/guide/guide.component.html'
         }), 
         __metadata('design:paramtypes', [])
     ], GuideComponent);

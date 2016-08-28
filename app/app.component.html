@@ -4,30 +4,35 @@
         <div id="sidebar-wrapper" style="overflow-x: hidden;">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
-                    <a [routerLink]="['Home-Component']" (click)="closeMenu()">
+                    <a routerLink="/" routerLinkActive="active" (click)="closeMenu()">
                         <div class="row"><my-logo></my-logo></div>
                     </a>
                 </li>
                 <li>
-                    <div><a [routerLink]="['Dashboard-Component']" (click)="closeMenu()"><img src="../app/ext/icov2/graphW.png" class="ico" >Dashboard</a></div>
+                    <div><a routerLink="/" routerLinkActive="active" (click)="closeMenu()"><img src="../app/ext/icov2/home.png" class="ico" >Home</a></div>
+                </li>
+                <li>
+                    <div><a routerLink="/dashboard" routerLinkActive="active" (click)="closeMenu()"><img src="../app/ext/icov2/graphW.png" class="ico" >Dashboard</a></div>
                 </li>
                 <li> 
-                    <div><a [routerLink]="['Control-Component']" (click)="closeMenu()"><img src="../app/ext/icov2/leaft2W.png" class="ico" >La mia coltivazione</a></div>
+                    <div><a routerLink="/control" routerLinkActive="active" (click)="closeMenu()"><img src="../app/ext/icov2/leaft2W.png" class="ico" >La mia coltivazione</a></div>
                 </li>
                 <li>
-                    <div><a [routerLink]="['Recipe-Component']" (click)="closeMenu()"><img src="../app/ext/icov2/bookW.png" class="ico" >Ricette</a></div>
+                    <div><a routerLink="/recipes" routerLinkActive="active" (click)="closeMenu()"><img src="../app/ext/icov2/bookW.png" class="ico" >Ricette</a></div>
+                </li>
+                <!--
+                <li>
+                    <div><a routerLink="/guide" routerLinkActive="active" (click)="closeMenu()"><img src="../app/ext/icov2/infoW.png" class="ico" >Guida all'utilizzo</a></div>
+                </li>
+                -->
+                <li>
+                    <div><a routerLink="/website" routerLinkActive="active" (click)="closeMenu()"><img src="../app/ext/icov2/whoW.png" class="ico" >Chi siamo</a></div>
                 </li>
                 <li>
-                    <div><a [routerLink]="['Guide-Component']" (click)="closeMenu()"><img src="../app/ext/icov2/infoW.png" class="ico" >Guida all'utilizzo</a></div>
+                    <div><a routerLink="/advanced" routerLinkActive="active" (click)="closeMenu()"><img src="../app/ext/icov2/settingsW.png" class="ico" >Advanced</a></div>
                 </li>
                 <li>
-                    <div><a [routerLink]="['Site-Component']" (click)="closeMenu()"><img src="../app/ext/icov2/whoW.png" class="ico" >Chi siamo</a></div>
-                </li>
-                <li>
-                    <div><a [routerLink]="['Avanz-Component']" (click)="closeMenu()"><img src="../app/ext/icov2/settingsW.png" class="ico" >Advanced</a></div>
-                </li>
-                <li>
-                    <div><a [routerLink]="['Shutdown-Component']" (click)="closeMenu()"><img src="../app/ext/icov2/shutdownB.png" class="ico" >Shutdown</a></div>
+                    <div><a routerLink="/shutdown" routerLinkActive="active" (click)="closeMenu()"><img src="../app/ext/icov2/shutdownB.png" class="ico" >Shutdown</a></div>
                 </li>
             </ul>
         </div>

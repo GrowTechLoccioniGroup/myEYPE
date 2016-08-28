@@ -34,8 +34,7 @@ var LogoComponent = (function () {
     LogoComponent = __decorate([
         core_1.Component({
             selector: 'my-logo',
-            templateUrl: 'app/logo/logo.component.html',
-            styleUrls: ['app/logo/logo.component.css']
+            templateUrl: 'app/logo/logo.component.html'
         }), 
         __metadata('design:paramtypes', [])
     ], LogoComponent);

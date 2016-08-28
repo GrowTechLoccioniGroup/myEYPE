@@ -8,5 +8,5 @@ video#backgroundvid {
     height: 100%; 
     z-index: -100;  
     background-size: cover;  
-    background-color: #216D00;
+    background-color: rgb(0,135,0);
 }

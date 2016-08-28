@@ -9,17 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var common_1 = require('@angular/common');
-var recipe_service_1 = require('../recipe/recipe.service');
+var calls_service_1 = require('./calls/calls.service');
+var data_service_1 = require('../data/data.service');
 var primeng_1 = require('primeng/primeng');
 var ControlComponent = (function () {
-    function ControlComponent(_recipeService) {
-        this._recipeService = _recipeService;
-        this.curtain = false;
-        this.otherParameters = [
+    function ControlComponent(calls, data) {
+        this.calls = calls;
+        this.data = data;
+        this.ServerParameters = [
             { id_parameters: 0, TimeStamp: new Date(2016, 0, 0), AirTemperature: 0.0, WaterTemperature: 0.0, Humidity: 0, PH: 0.0, Conductivity: 0 }
         ];
-        this.myParameters = {
+        this.ClientParameter = {
             id_parameters: 0,
             TimeStamp: new Date(1993, 2, 3),
             AirTemperature: 0.0,
@@ -28,65 +28,40 @@ var ControlComponent = (function () {
             PH: 0.0,
             Conductivity: 0
         };
-        this.setCurtains = false;
-        this._air = 0.0;
-        this._ph = 0.0;
-        this._hum = 0;
     }
     ControlComponent.prototype.ngOnInit = function () {
-        this.getParametersItems();
+        this.getParameters();
     };
-    ControlComponent.prototype.getParametersItems = function () {
+    ControlComponent.prototype.getParameters = function () {
         var _this = this;
-        this._recipeService.getParameters().subscribe(function (parameter) {
-            _this.otherParameters = parameter.json();
-        }, function (error) { return console.log(error); }, function () { return console.log('Get all PARAMETERS complete!'); });
+        this.calls.GetAllParameters().subscribe(function (parameter) {
+            _this.ServerParameters = parameter.json();
+        }, function (error) { return console.log(error); }, function () { return console.log('Get all parameters complete!'); });
+        this.ClientParameter = this.ServerParameters[0];
     };
-    ControlComponent.prototype.setParametersItems = function () {
-        this.myParameters.AirTemperature = this._air;
-        this.myParameters.PH = this._ph;
-        this.myParameters.Humidity = this._hum;
-        this._recipeService.setParameters(this.myParameters).subscribe(function (data) { return console.log(data); }, function (error) { return console.log(error); }, function () { return console.log('Set all PARAMETERS complete!'); });
+    ControlComponent.prototype.setParameters = function () {
+        this.calls.SetParameters(this.ClientParameter).subscribe(function (data) { return console.log(data); }, function (error) { return console.log(error); }, function () { return console.log('Set all parameters complete!'); });
     };
-    ControlComponent.prototype.setCurtainsItemsUp = function () {
-        if (this.curtain == false) {
-            this._recipeService.setCurtainsUp(true).subscribe(function (curtain) { return curtain.json(); }, function (error) { return console.log(error); }, function () { return console.log('Set CURTAIN complete!'); });
-            this.curtain = true;
+    ControlComponent.prototype.setCurtainsUp = function () {
+        if (!this.data.getCurtainsState()) {
+            this.calls.SetCurtainsUp(true).subscribe(function (curtain) { return curtain.json(); }, function (error) { return console.log(error); }, function () { return console.log('Set curtain complete!'); });
+            this.data.setCurtainsState(true);
         }
     };
-    ControlComponent.prototype.setCurtainsItemsDown = function () {
-        if (this.curtain == true) {
-            this._recipeService.setCurtainsDown(false).subscribe(function (curtain) { return curtain.json(); }, function (error) { return console.log(error); }, function () { return console.log('Set CURTAIN complete!'); });
-            this.curtain = false;
+    ControlComponent.prototype.setCurtainsDown = function () {
+        if (this.data.getCurtainsState()) {
+            this.calls.SetCurtainsDown(false).subscribe(function (curtain) { return curtain.json(); }, function (error) { return console.log(error); }, function () { return console.log('Set curtain complete!'); });
+            this.data.setCurtainsState(false);
         }
-    };
-    ControlComponent.prototype.humMin = function () {
-        this.myParameters.Humidity--;
-    };
-    ControlComponent.prototype.humMax = function () {
-        this.myParameters.Humidity++;
-    };
-    ControlComponent.prototype.airTempMin = function () {
-        this.myParameters.AirTemperature--;
-    };
-    ControlComponent.prototype.airTempMax = function () {
-        this.myParameters.AirTemperature++;
-    };
-    ControlComponent.prototype.pHMin = function () {
-        this.myParameters.PH--;
-    };
-    ControlComponent.prototype.pHMax = function () {
-        this.myParameters.PH++;
     };
     ControlComponent = __decorate([
         core_1.Component({
-            selector: 'my-control',
-            providers: [recipe_service_1.RecipeService],
             templateUrl: 'app/control/control.component.html',
             styleUrls: ['app/control/control.component.css'],
-            directives: [common_1.CORE_DIRECTIVES, primeng_1.Slider, common_1.NgSwitch, common_1.NgSwitchWhen]
+            directives: [primeng_1.Slider],
+            providers: [calls_service_1.ControlCallsService]
         }), 
-        __metadata('design:paramtypes', [recipe_service_1.RecipeService])
+        __metadata('design:paramtypes', [calls_service_1.ControlCallsService, data_service_1.DataService])
     ], ControlComponent);
     return ControlComponent;
 }());

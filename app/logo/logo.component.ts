@@ -2,8 +2,7 @@ import { Component, HostListener } from '@angular/core';
 
 @Component({
     selector: 'my-logo',
-    templateUrl: 'app/logo/logo.component.html',
-    styleUrls: ['app/logo/logo.component.css']
+    templateUrl: 'app/logo/logo.component.html'
 })
 
 export class LogoComponent {

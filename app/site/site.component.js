@@ -14,9 +14,7 @@ var SiteComponent = (function () {
     }
     SiteComponent = __decorate([
         core_1.Component({
-            selector: 'my-site',
-            templateUrl: 'app/site/site.component.html',
-            styleUrls: ['app/site/site.component.css']
+            templateUrl: 'app/site/site.component.html'
         }), 
         __metadata('design:paramtypes', [])
     ], SiteComponent);

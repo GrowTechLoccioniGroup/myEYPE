@@ -1,73 +1,22 @@
-.dimensioni {
-    margin-top: 40px;
+.btn-group {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
 }
 
-.line-height {
-  margin-top: 150px;
+.backgorundUp {
+    background-image: './app/ext/icov2/up.png'
 }
 
-.line-heightx {
-  margin-top: 160px;
+.backgorundDown {
+    background-image: './app/ext/icov2/down.png'
 }
 
-
-
-.color0 {
-  background-color: #CF000F;
+.backgorundButton {
+    background-color: rgb(255,255,255);
 }
 
-.color1 {
-  background-color: #CC4106;
-}
-
-.color2 {
-  background-color: #CA6D11;
-}
-
-.color3 {
-  background-color: #E6BB24;
-}
-
-.color4 {
-  background-color: #E2E02E;
-}
-
-.color5 {
-  background-color: #A8E32F;
-}
-
-.color6 {
-  background-color: #83CA2D;
-}
-
-.color7 {
-  background-color: #05C12D;
-}
-
-.color8 {
-  background-color: #06B885;
-}
-
-.color9 {
-  background-color: #1B849F;
-}
-
-.color10 {
-  background-color: #1D509C;
-}
-
-.color11 {
-  background-color: #1F2D99;
-}
-
-.color12 {
-  background-color: #3C0B96;
-}
-
-.color13 {
-  background-color: #3E007D;
-}
-
-.color14 {
-  background-color: #3C006B;
+.marginRL {
+    margin-left: 30px;
+    margin-right: 30px;
 }
